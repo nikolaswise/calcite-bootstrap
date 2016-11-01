@@ -9,7 +9,7 @@
     "html": "copyfiles -f ./lib/*.html ./dist",
     "js": "copyfiles -f ./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js ./dist/javascript",
     "fonts": "copyfiles -f ./node_modules/bootstrap-sass/assets/fonts/bootstrap/* ./dist/fonts/bootstrap",
-    "sass": "node-sass lib/ --include-path node_modules -o dist/",
+    "sass": "node-sass lib/ --include-path node_modules -o dist/css/",
     "predev": "npm-run-all html sass js fonts",
     "dev": "parallelshell 'http-server dist/' 'rerun-script'"
   },
