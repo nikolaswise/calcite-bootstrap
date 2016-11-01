@@ -6,9 +6,11 @@
   "homepage": "https://github.com/Esri/calcite-bootstrap",
   "scripts": {
     "start": "npm run dev",
-    "html": "cp lib/index.html dist/",
-    "sass": "node-sass lib/ --include-path node_modules -o dist/",
-    "predev": "npm-run-all html sass",
+    "html": "copyfiles -f ./lib/*.html ./dist",
+    "js": "copyfiles -f ./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js ./dist/javascript",
+    "fonts": "copyfiles -f ./node_modules/bootstrap-sass/assets/fonts/bootstrap/* ./dist/fonts/bootstrap",
+    "sass": "node-sass lib/ --include-path node_modules -o dist/css/",
+    "predev": "npm-run-all html sass js fonts",
     "dev": "parallelshell 'http-server dist/' 'rerun-script'"
   },
   "watches": {
@@ -39,6 +41,7 @@
   },
   "devDependencies": {
     "calcite-web": "github:esri/calcite-web#v1.0.0-beta.20",
+    "copyfiles": "^1.0.0",
     "http-server": "^0.9.0",
     "node-sass": "^3.5.3",
     "npm-run-all": "^1.8.0",
