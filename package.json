@@ -6,12 +6,11 @@
   "homepage": "https://github.com/Esri/calcite-bootstrap",
   "scripts": {
     "start": "npm run dev",
-    "html": "copyfiles -f ./lib/index.html ./dist",
+    "html": "copyfiles -f ./lib/*.html ./dist",
     "js": "copyfiles -f ./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js ./dist/javascript",
     "fonts": "copyfiles -f ./node_modules/bootstrap-sass/assets/fonts/bootstrap/* ./dist/fonts/bootstrap",
     "sass": "node-sass lib/ --include-path node_modules -o dist/",
-    "docs": "copyfiles -f ./dist/calcite-bootstrap.css ./docs/build/assets/css",
-    "predev": "npm-run-all html sass js fonts docs",
+    "predev": "npm-run-all html sass js fonts",
     "dev": "parallelshell 'http-server dist/' 'rerun-script'"
   },
   "watches": {
